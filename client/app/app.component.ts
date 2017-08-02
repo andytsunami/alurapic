@@ -15,7 +15,7 @@ export class AppComponent{
         .subscribe(fotos => {
             this.fotos = fotos ;
             console.log(this.fotos);
-        });
+        }, erro => console.log(erro));
 
     }
 }
