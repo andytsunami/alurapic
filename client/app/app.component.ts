@@ -1,3 +1,4 @@
+import 'rxjs/add/operator/map';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http'
 
@@ -11,8 +12,9 @@ export class AppComponent{
 
     constructor(http: Http){
         http.get('v1/fotos')
-        .subscribe(res => {
-            this.fotos = res.json();
+        .map(res => res.json())
+        .subscribe(fotos => {
+            this.fotos = fotos ;
             console.log(this.fotos);
         });
 
