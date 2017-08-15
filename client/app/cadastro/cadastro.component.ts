@@ -9,6 +9,11 @@ import { FotoComponent } from "../foto/foto.component";
 export class CadastroComponent{
     foto: FotoComponent = new FotoComponent();
 
+    constructor(){
+        this.foto.titulo = "Tituloo",
+        this.foto.url = "URL",
+        this.foto.descricao = "Diz algo ae"
+    }
     cadastrar(event){
         event.preventDefault();
         console.log(this.foto);
