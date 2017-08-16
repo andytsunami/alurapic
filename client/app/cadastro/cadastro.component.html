@@ -1,4 +1,5 @@
 <div class="container">
+    <h1 class="text-center">{{foto.titulo}}</h1>
 
     <form [formGroup]="meuForm" class="row" (submit)="cadastrar($event)">
         <div class="col-md-6">
@@ -10,9 +11,14 @@
                     formControlName="titulo"
                     class="form-control"  
                     autocomplete="off">
-                <span *ngIf=" " class="form-control alert-danger">
-                    Título obrigatório
-                </span>     
+                <div *ngIf="!meuForm.controls.titulo.valid">
+                    <span *ngIf="meuForm.controls.titulo.errors.required" class="form-control alert-danger">
+                        Título obrigatório
+                    </span>
+                    <span *ngIf="meuForm.controls.titulo.errors.minlength" class="form-control alert-danger">
+                        O título deve ter no mínimo 4 caracteres
+                    </span>     
+                </div>
             </div>
             <div class="form-group">
                 <label>URL</label>
