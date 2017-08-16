@@ -1,17 +1,16 @@
 <div class="container">
 
-    <form #meuForm="ngForm" class="row" (submit)="cadastrar($event)">
+    <form [formGroup]="meuForm" class="row" (submit)="cadastrar($event)">
         <div class="col-md-6">
             <div class="form-group">
                 <label>Título</label>
                 <input 
-                    required
-                    #titulo = "ngModel"
                     name="titulo" 
                     [(ngModel)]="foto.titulo" 
+                    formControlName="titulo"
                     class="form-control"  
                     autocomplete="off">
-                <span *ngIf="titulo.invalid" class="form-control alert-danger">
+                <span *ngIf=" " class="form-control alert-danger">
                     Título obrigatório
                 </span>     
             </div>
@@ -20,6 +19,7 @@
                 <input 
                     name="url" 
                     [(ngModel)]="foto.url"
+                    formControlName="url"
                     class="form-control"  
                     autocomplete="off">
             </div>
@@ -28,12 +28,13 @@
                 <textarea 
                     name="descricao" 
                     [(ngModel)]="foto.descricao"
+                    formControlName="descricao"
                     class="form-control" 
                     autocomplete="off">
                 </textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" [disabled]="meuForm.form.invalid">
+            <button type="submit" class="btn btn-primary" [disabled]="meuForm.invalid">
                 Salvar
             </button>
              <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
