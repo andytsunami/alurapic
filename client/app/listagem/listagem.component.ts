@@ -19,4 +19,8 @@ export class ListagemComponent{
             console.log(this.fotos);
         }, erro => console.log(erro));
     }
+
+    exclui(foto: FotoComponent): void{
+        console.log(foto);
+    }
 }
