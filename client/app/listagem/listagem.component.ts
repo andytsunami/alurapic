@@ -1,5 +1,6 @@
-import {Component} from '@angular/core'
-import { Http } from '@angular/http'
+import {Component} from '@angular/core';
+import { FotoService } from '../foto/foto.service';
+import { FotoComponent } from '../foto/foto.component';
 
 @Component({
     moduleId: module.id,
@@ -7,12 +8,13 @@ import { Http } from '@angular/http'
     templateUrl: './listagem.component.html'
 })
 export class ListagemComponent{
-    fotos: Object[] = [];
+    fotos: FotoComponent[] = [];
 
-    constructor(http: Http){
-        http.get('v1/fotos')
-        .map(res => res.json())
-        .subscribe(fotos => {
+    constructor(service: FotoService){
+               
+        service.lista()
+        .subscribe(
+            fotos => {
             this.fotos = fotos ;
             console.log(this.fotos);
         }, erro => console.log(erro));
