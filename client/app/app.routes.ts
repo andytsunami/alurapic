@@ -10,6 +10,9 @@ const appRoutes: Routes = [
         path: 'cadastro', component: CadastroComponent
     },
     {
+        path: 'cadastro/:id', component: CadastroComponent
+    },
+    {
         path: '**', redirectTo: ''
     }
 ]
