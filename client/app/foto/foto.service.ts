@@ -50,11 +50,11 @@ export class MensagemCadastro {
         this._inclusao = _inclusao;
     }
 
-    get mensagem(): string{
+    public get mensagem(): string{
         return this._mensagem
     }
 
-    get inclusao(): boolean {
+    public get inclusao(): boolean {
         return this._inclusao;
     }
 }
