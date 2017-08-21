@@ -47,9 +47,10 @@ export class CadastroComponent {
         console.log(this.foto);
         
         this.service.cadastra(this.foto)
-        .subscribe(()=>{
+        .subscribe(res =>{
+            this.mensagem = res.mensagem;
             this.foto = new FotoComponent();
-            this.router.navigate(['']);
+            if(!res.inclusao) this.router.navigate(['']);
             console.log("Foto salva com sucesso!");
         },erro => console.log(erro));
     }
