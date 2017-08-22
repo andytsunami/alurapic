@@ -13,6 +13,7 @@ import { routing } from './app.routes';
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BotaoModule } from './botao/botao.module';
+import { ModalModule } from './modal/modal.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { BotaoModule } from './botao/botao.module';
         FormsModule,
         ReactiveFormsModule,
         BotaoModule,
+        ModalModule,
     ],
     declarations: [AppComponent, CadastroComponent, ListagemComponent],
     bootstrap: [AppComponent]
